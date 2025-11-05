@@ -1,10 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const itemController = require('../controllers/itemController');
+const itemService = require('../services/itemService');
 
-router.get('/', itemController.getAllItems);
-router.get('/:id', itemController.getItemById);
-router.get('/category/:categoryId', itemController.getItemsByCategory);
-router.get('/subcategory/:subCategoryId', itemController.getItemsBySubCategory);
+router.get('/', itemService.getAllItems);
+
+// search either by using id or full name of category
+router.get('/:search', itemService.getItemBySearch);
+
+// new Item we need to also include cat Id
+router.post('/', itemService.createItem);
+
+router.patch('/:id', itemService.updateItem);
 
 module.exports = router;

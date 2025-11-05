@@ -3,32 +3,36 @@ const Category = require('./category');
 const SubCategory = require('./subcategory');
 const Item = require('./item');
 
-// ✅ Define model associations before syncing
 Category.hasMany(SubCategory, {
   foreignKey: 'categoryId',
   onDelete: 'CASCADE',
+  onUpdate: 'CASCADE'
 });
 SubCategory.belongsTo(Category, { foreignKey: 'categoryId' });
 
 SubCategory.hasMany(Item, {
   foreignKey: 'subCategoryId',
   onDelete: 'CASCADE',
+  onUpdate: 'CASCADE'
 });
 Item.belongsTo(SubCategory, { foreignKey: 'subCategoryId' });
 
-// You can optionally also make Items directly belong to Category
-Item.belongsTo(Category, { foreignKey: 'categoryId' });
-
-const syncDB = async () => {
+const syncDB = async (opts = { alter: true }) => {
   try {
     await sequelize.authenticate();
-    console.log('✅ Database connected successfully');
-
-    await sequelize.sync({ alter: true }); // use { force: true } to reset
-    console.log('✅ All models synced successfully');
-  } catch (error) {
-    console.error('❌ Database connection error:', error);
+    console.log('✅ DB connection OK');
+    await sequelize.sync(opts);
+    console.log('✅ Models synced');
+  } catch (err) {
+    console.error('❌ DB sync error', err);
+    throw err;
   }
 };
 
-module.exports = { sequelize, Category, SubCategory, Item, syncDB };
+module.exports = {
+  sequelize,
+  Category,
+  SubCategory,
+  Item,
+  syncDB
+};

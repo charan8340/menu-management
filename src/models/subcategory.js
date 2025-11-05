@@ -1,28 +1,18 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-const Category = require('./category');
 
 const SubCategory = sequelize.define('SubCategory', {
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   name: { type: DataTypes.STRING, allowNull: false },
-  imageUrl: { type: DataTypes.STRING },
-  description: { type: DataTypes.TEXT },
-  taxApplicable: { type: DataTypes.BOOLEAN },
-  taxRate: { type: DataTypes.FLOAT },
-  taxType: { type: DataTypes.STRING }
+  image: { type: DataTypes.STRING },
+  description: { type: DataTypes.STRING },
+  tax_applicable: { type: DataTypes.BOOLEAN, defaultValue: false },
+  tax: { type: DataTypes.FLOAT, defaultValue: 0 },
+  // categoryId will be added by association (keeps column name consistent)
+  categoryId: { type: DataTypes.INTEGER, allowNull: true }
 }, {
-  tableName: 'subcategories',
+  tableName: 'SubCategories',
   timestamps: true,
-});
-
-// Associations
-Category.hasMany(SubCategory, {
-  foreignKey: 'categoryId',
-  as: 'subcategories',
-  onDelete: 'CASCADE'
-});
-SubCategory.belongsTo(Category, {
-  foreignKey: 'categoryId',
-  as: 'category'
 });
 
 module.exports = SubCategory;

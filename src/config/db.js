@@ -1,8 +1,6 @@
-// src/config/db.js
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
-// Initialize Sequelize connection
 const sequelize = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USER,
@@ -10,7 +8,6 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST,
     dialect: 'mysql',
-    logging: false, // set to true if you want to see raw SQL logs
   }
 );
 

@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const subcategoryController = require('../controllers/subcategoryController');
+const subcategoryService = require('../services/subcategoryService');
 
-router.post('/', subcategoryController.createSubcategory);
-router.get('/', subcategoryController.getAllSubcategories);
+// we need to include category id.
+router.post('/', subcategoryService.createSubcategory);
+
+router.get('/:id', subcategoryService.getSubcategoryById);
+
+router.patch('/:id', subcategoryService.updateSubcategory);
 
 module.exports = router;
