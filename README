@@ -1,0 +1,241 @@
+Below is a **clean, professional `README.md`** for your assignment ✅
+(copy-paste into your repo)
+
+---
+
+## 🍽️ Menu Management Backend — Node.js + Express + MySQL
+
+A backend application for managing menu hierarchy:
+**Category → SubCategory → Items**
+
+No frontend — testing done in **Postman**.
+
+---
+
+## 🚀 Features
+
+✅ Create / Update Categories
+✅ Create / Update Subcategories
+✅ Create / Update Items
+✅ Fetch Categories (names only)
+✅ Fetch Subcategories under Category
+✅ Fetch Items under Category/Subcategory
+✅ Search Items by ID or Name
+
+---
+
+## 🛠️ Tech Stack
+
+| Component   | Technology        |
+| ----------- | ----------------- |
+| Backend     | Node.js + Express |
+| Database    | MySQL             |
+| ORM         | Sequelize         |
+| API Testing | Postman           |
+
+---
+
+## 📂 Project Setup
+
+### ✅ 1. Clone Repository
+
+```bash
+git clone <your-repo-url>
+cd <project-folder>
+```
+
+### ✅ 2. Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 🗄️ MySQL Setup
+
+### 3.1 Create MySQL Database
+
+Login to MySQL:
+
+```bash
+mysql -u root -p
+```
+
+Then create database:
+
+```sql
+CREATE DATABASE menu_management;
+```
+
+### 3.2 Create `.env` file in project root
+
+```env
+DB_NAME=menu_management
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_HOST=localhost
+PORT=3000
+```
+
+> Replace `your_mysql_password` with your actual MySQL password.
+
+---
+
+## 📦 Install Required Node Modules
+
+```bash
+npm install express sequelize mysql2 dotenv
+```
+
+If using nodemon (recommended for development):
+
+```bash
+npm install -D nodemon
+```
+
+---
+
+## ▶️ Run Server
+
+### With Node
+
+```bash
+node server.js
+```
+
+### With Nodemon
+
+```bash
+npx nodemon server.js
+```
+
+You should see:
+
+```
+✅ DB connection OK
+✅ Models synced
+✅ Server listening on 3000
+```
+
+---
+
+## 🧪 Test APIs using Postman
+
+### Base URL
+
+```
+http://localhost:3000/api
+```
+
+### Endpoints
+
+| Method    | Endpoint                       | Description                            |
+| --------- | ------------------------------ | -------------------------------------- |
+| **POST**  | `/category`                    | Create Category                        |
+| **GET**   | `/category`                    | Get all categories (id + name)         |
+| **GET**   | `/category/:cid/sub_cat`       | Get subcategories under category       |
+| **POST**  | `/subcategory`                 | Create Subcategory                     |
+| **GET**   | `/category/:cid/sub_cat/:scid` | Get items under category + subcategory |
+| **POST**  | `/items`                       | Create item                            |
+| **GET**   | `/items/:search`               | Search item by id or name              |
+| **PATCH** | `/items/:id`                   | Update item                            |
+
+---
+
+## 🔍 Example Postman Requests
+
+### Create Category
+
+POST `/api/category`
+
+```json
+{
+  "name": "Beverages",
+  "image": "img.jpg",
+  "description": "Drinks section",
+  "tax_applicable": true,
+  "tax": 5,
+  "tax_type": "GST"
+}
+```
+
+### Create Subcategory
+
+POST `/api/subcategory`
+
+```json
+{
+  "name": "Soft Drinks",
+  "categoryId": 1
+}
+```
+
+### Create Item
+
+POST `/api/items`
+
+```json
+{
+  "name": "Coke",
+  "base_amount": 50,
+  "discount": 5,
+  "subCategoryId": 1
+}
+```
+
+### Get Subcategories under Category
+
+```
+GET /api/category/1/sub_cat
+```
+
+### Get Items under Category + Subcategory
+
+```
+GET /api/category/1/sub_cat/1
+```
+
+### Search Item
+
+```
+GET /api/items/Coke
+GET /api/items/1
+```
+
+---
+
+## ✅ Notes
+
+* No frontend; only Postman/API testing.
+* Database auto-syncs tables using Sequelize.
+* If DB schema errors occur in development, run once:
+
+```js
+syncDB({ force: true })
+```
+
+---
+
+## 🎥 Deliverables
+
+* ✅ GitHub Repo
+* ✅ Working Code
+* ✅ Loom Video Demonstrating:
+
+  * API calls in Postman
+  * DB setup
+  * Code walkthrough
+
+---
+
+## ✨ Done!
+
+Your backend is now ready — test via Postman & share your Loom walkthrough.
+
+If you want, I can also provide:
+📦 **Postman collection JSON**
+🌱 **DB seed script**
+🎯 **Swagger API docs**
+
+Just say the word.
