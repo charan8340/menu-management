@@ -10,7 +10,7 @@ This SOP outlines the steps to develop a minimum admin system with categories, s
 
 **1. Define Database Structure** [0:14](https://loom.com/share/3069aaef284d4a828766de05ec832fb9?t=14)
 
-![generated-image-at-00:00:14](https://loom.com/i/de33573386e84b5aba459c1b8fa3e49c?workflows_screenshot=true)
+(https://loom.com/i/de33573386e84b5aba459c1b8fa3e49c?workflows_screenshot=true)
 
 - Develop three sub-modules: categories, sub-categories, and items.
 - Establish a many-to-many relationship between modules: 
@@ -20,8 +20,7 @@ This SOP outlines the steps to develop a minimum admin system with categories, s
  
 
 **2. Choose Database Type** [0:40](https://loom.com/share/3069aaef284d4a828766de05ec832fb9?t=40)
-
-![generated-image-at-00:00:40](https://loom.com/i/d02e1a8d18eb4c9e95014477844ea36a?workflows_screenshot=true)
+(https://loom.com/i/d02e1a8d18eb4c9e95014477844ea36a?workflows_screenshot=true)
 
 - Select MySQL as the database for the application.
 
@@ -29,7 +28,7 @@ This SOP outlines the steps to develop a minimum admin system with categories, s
 
 **3. Create Database Schema** [0:49](https://loom.com/share/3069aaef284d4a828766de05ec832fb9?t=49)
 
-![generated-image-at-00:00:49](https://loom.com/i/c92c4e02d1fb47a5801169586461bf52?workflows_screenshot=true)
+(https://loom.com/i/c92c4e02d1fb47a5801169586461bf52?workflows_screenshot=true)
 
 - Define the structure of the database: 
   - Categories table with a primary key (ID).
@@ -40,7 +39,7 @@ This SOP outlines the steps to develop a minimum admin system with categories, s
 
 **4. Set Up API Routes** [1:31](https://loom.com/share/3069aaef284d4a828766de05ec832fb9?t=91)
 
-![generated-image-at-00:01:31](https://loom.com/i/07dcc11904a14df296925a4b35ae31d9?workflows_screenshot=true)
+(https://loom.com/i/07dcc11904a14df296925a4b35ae31d9?workflows_screenshot=true)
 
 - Create main API route: `API/category` to retrieve all categories.
 - Implement specific routes to get sub-categories and items based on category ID.
@@ -49,7 +48,7 @@ This SOP outlines the steps to develop a minimum admin system with categories, s
 
 **5. Implement Layered Architecture** [3:15](https://loom.com/share/3069aaef284d4a828766de05ec832fb9?t=195)
 
-![generated-image-at-00:03:15](https://loom.com/i/3e6887d760f24ae98e800c3e168dfff6?workflows_screenshot=true)
+(https://loom.com/i/3e6887d760f24ae98e800c3e168dfff6?workflows_screenshot=true)
 
 - Divide the code into three layers of abstraction: 
   - **Controller/Routes Layer**: Handles incoming requests (category routes, sub-category routes, item routes).
@@ -60,7 +59,7 @@ This SOP outlines the steps to develop a minimum admin system with categories, s
 
 **6. Handle Requests** [3:46](https://loom.com/share/3069aaef284d4a828766de05ec832fb9?t=226)
 
-![generated-image-at-00:03:46](https://loom.com/i/3fff7c33bfac49258917419cb3d207e0?workflows_screenshot=true)
+(https://loom.com/i/3fff7c33bfac49258917419cb3d207e0?workflows_screenshot=true)
 
 - Ensure that requests to the API call the appropriate business logic methods based on the route.
 
@@ -68,7 +67,7 @@ This SOP outlines the steps to develop a minimum admin system with categories, s
 
 **7. Define Database Functions** [4:05](https://loom.com/share/3069aaef284d4a828766de05ec832fb9?t=245)
 
-![generated-image-at-00:04:05](https://loom.com/i/ce4d15412582473aa6939f5bf8cb7f89?workflows_screenshot=true)
+(https://loom.com/i/ce4d15412582473aa6939f5bf8cb7f89?workflows_screenshot=true)
 
 - Create SQL functions to interact with the database for CRUD operations.
 
@@ -76,7 +75,7 @@ This SOP outlines the steps to develop a minimum admin system with categories, s
 
 **8. Map Objects for Node.js** [4:14](https://loom.com/share/3069aaef284d4a828766de05ec832fb9?t=254)
 
-![generated-image-at-00:04:14](https://loom.com/i/b4339d54fbf045fb90455799578a1647?workflows_screenshot=true)
+(https://loom.com/i/b4339d54fbf045fb90455799578a1647?workflows_screenshot=true)
 
 - Use ORM (Object-Relational Mapping) to map database objects to Node.js objects for easier data manipulation.
 
@@ -204,5 +203,6 @@ syncDB({ force: true })
   * API calls in Postman
   * DB setup
   * Code walkthrough
+
 
 
